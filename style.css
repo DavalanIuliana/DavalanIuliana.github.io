@@ -1,0 +1,80 @@
+@font-face {
+    font-family: PixelifySans;
+    src: url("PixelifySans-Regular\ \(1\).woff2") format("woff2");
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(170, 175, 240);
+    line-height: 1.5;
+    font-family: "PixelifySans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+
+h1{
+    margin: 0;
+}
+    
+    .header{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        align-items: center;
+}
+
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+p{
+    max-width: 600px;
+}
+
+
+.header a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+   
+.nav{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,200px);
+    justify-content: center;
+    gap: 20px ;
+}
+
+
+.nav a{
+    text-decoration: none;
+    color: currentColor;
+    background: #f0eeef79;
+}
+
+
+.nav a span{
+    display: block;
+    padding: 12px
+;
+
+}
+
+
+    .projet{
+        background-color: rgb(199, 164, 231);
+    }
+
+
+
+    .projet h1{
+        font-size: 50px;
+        font-family: PF Pixelscript;
+    }

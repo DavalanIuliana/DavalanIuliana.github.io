@@ -1,80 +1,224 @@
-@font-face {
-    font-family: PixelifySans;
-    src: url("PixelifySans-Regular\ \(1\).woff2") format("woff2");
-}
-
-*{
+/* ======================= */
+/* Global & Reset          */
+/* ======================= */
+* {
     box-sizing: border-box;
 }
 
-body{
-    background-color: rgb(170, 175, 240);
-    line-height: 1.5;
-    font-family: "PixelifySans", sans-serif;
-    font-optical-sizing: auto;
-}
 
 
-h1{
+body {
+    font-family: "pf-pixelscript", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
-}
-    
-    .header{
-        display: grid;
-        grid-template-columns: auto auto;
-        justify-content: space-between;
-        align-items: center;
+    padding: 0;
 }
 
-
-img{
+img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-
-p{
-    max-width: 600px;
-}
-
-
-.header a{
-    text-decoration: none;
-    color: currentColor;
-}
-
-   
-.nav{
+/* ======================= */
+/* Header & Navigation     */
+/* ======================= */
+header {
+    background-color: #ffffff;
     display: grid;
-    grid-template-columns: repeat(auto-fill,200px);
-    justify-content: center;
-    gap: 20px ;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    align-items: first baseline;
+    border-bottom: 1px solid #000000;
+}
+
+.header-title {
+    font-family: "adelle-mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 10px;
+}
+
+.header-title2 {
+    font-family: "PF Pixelscript";
+    font-size: 30px;
+    font-style: normal;
+    color: #000000;
+}
+
+.header-nav {
+    font-family: "adelle-mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+    font-size: 20px;
 }
 
 
-.nav a{
+
+.header-nav a {
     text-decoration: none;
-    color: currentColor;
-    background: #f0eeef79;
+    color: black;
 }
-
-
-.nav a span{
-    display: block;
-    padding: 12px
-;
+.header-nav a:hover{
+  color:  #c45e9f
 
 }
 
+/* ======================= */
+/* Projet & Grid           */
+/* ======================= */
+.grid-projects {
+    display: grid;
+    gap: 10px;
+    margin: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
 
-    .projet{
-        background-color: rgb(199, 164, 231);
+@media (min-width: 820px) {
+    .projet .grid {
+        grid-template-columns: repeat(2, minmax(400px, 1fr));
     }
+}
 
-
-
-    .projet h1{
-        font-size: 50px;
-        font-family: PF Pixelscript;
+@media (min-width: 1220px) {
+    .projet .grid {
+        grid-template-columns: repeat(3, minmax(400px, 1fr));
     }
+}
+
+.projet2 .grid {
+    display: grid;
+    max-width: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.projet .grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item {
+    display: grid;
+    background: #c45e9f;
+    text-decoration: none;
+    font-family: "adelle-mono", monospace;
+    font-weight: 400;
+    font-style: bold;
+}
+
+.item>* {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    justify-self: center;
+    align-self: center;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.item p {
+    font-size: 22px;
+    opacity: 0;
+}
+
+.item:hover img {
+    opacity: 0.5;
+}
+
+.item:hover p {
+    opacity: 1;
+    z-index: 10;
+}
+
+/* ======================= */
+/* Texte & Présentation    */
+/* ======================= */
+.chapo {
+    font-family: "adelle-mono", monospace;
+    line-height: 1.6;
+}
+
+.presentation, .prez {
+    font-family: "adelle-mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+}
+
+.hello-a {
+    font-family: "adelle-mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+    text-decoration: none;
+    padding-top: 10px;
+    color: #000000;
+    width: 40%;
+    box-sizing: border-box;
+}
+
+.hello-a:hover {
+    color: #c45e9f;
+}
+
+.prez {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ======================= */
+/* Footer                  */
+/* ======================= */
+.footer, .footer-nav {
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    position: sticky;
+}
+
+/* ======================= */
+/* Bande défilante          */
+/* ======================= */
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    border: 2px solid #666;
+    padding: 15px 0;
+}
+
+.banner-content {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+}
+
+.banner-text {
+    font-family: "adelle-mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 0 50px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.banner-container:hover .banner-content {
+    animation-play-state: paused;
+}
+
+/* ======================= */
+/* Lien                   */
+/* ======================= */
+.lien {
+    text-decoration: none;
+    color: #c45e9f;
+}
